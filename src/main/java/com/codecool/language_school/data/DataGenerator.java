@@ -55,15 +55,15 @@ public class DataGenerator {
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
 
-        fillList(klassList, klassCount, this::createKlass);
-        fillList(studentList, studentCount, this::createStudent);
-        addStudentsToKlass();
-        fillList(teacherList, teacherCount, this::createTeacher);
-        addTeacherToKlass();
+        //fillList(klassList, klassCount, this::createKlass);
+        //fillList(studentList, studentCount, this::createStudent);
+        //addStudentsToKlass();
+        //fillList(teacherList, teacherCount, this::createTeacher);
+        //addTeacherToKlass();
         fillList(adminList, adminCount, this::createAdmin);
-        fillList(attendanceEntryList, attendanceEntryCount, this::createAttendanceEntry);
-        fillList(attendanceList, attendanceCount, this::createAttendance);
-        addAttendanceToAttendanceEntry();
+        //fillList(attendanceEntryList, attendanceEntryCount, this::createAttendanceEntry);
+        //fillList(attendanceList, attendanceCount, this::createAttendance);
+        //addAttendanceToAttendanceEntry();
 
         createTestData(entityManager);
 
@@ -71,14 +71,14 @@ public class DataGenerator {
     }
 
     private void createTestData(EntityManager entityManager) {
-        Student student = createTestStudent();
-        Teacher teacher = createTestTeacher();
+        //Student student = createTestStudent();
+        //Teacher teacher = createTestTeacher();
         Admin admin = createTestAdmin();
-        entityManager.persist(student.getCredentials());
-        entityManager.persist(teacher.getCredentials());
+        //entityManager.persist(student.getCredentials());
+        //entityManager.persist(teacher.getCredentials());
         entityManager.persist(admin.getCredentials());
-        entityManager.persist(student);
-        entityManager.persist(teacher);
+        //entityManager.persist(student);
+        //entityManager.persist(teacher);
         entityManager.persist(admin);
     }
 

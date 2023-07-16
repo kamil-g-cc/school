@@ -1,20 +1,23 @@
 package com.codecool.language_school.model.user;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
-//@Annotation
+@Entity
 public class Credentials {
 
-    //@Annotation
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    //@Annotation
+    @Basic
     private String email;
 
-    //@Annotation
+    @Basic
     private String login;
 
-    //@Annotation
+    @Basic
     private String password;
 
     public Credentials(String email, String login, String password) {

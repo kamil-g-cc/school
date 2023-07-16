@@ -73,7 +73,11 @@ public abstract class Controller {
      * @return Optional of <T> by Stream findFirst() on result list
      */
     protected <T, V> Optional<T> getOptional(Class<T> theClass, String tableName, String parameter, V value){
-        throw new UnsupportedOperationException("Not yet implemented");
+        String query = String.format("SELECT x from %s x WHERE x.%s = ?1", tableName, parameter);
+        return entityManager.createQuery(query, theClass).setParameter(1, value)
+                .getResultList().stream().findFirst();
+
+        //throw new UnsupportedOperationException("Not yet implemented");
     }
 
     /**

@@ -5,24 +5,28 @@ import com.sun.istack.NotNull;
 import javax.persistence.*;
 
 //@Annotation
+@Entity(name = "AppUser")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class User {
 
-    //@Annotation
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected long id;
 
-    //@Annotation
+    @Basic
     protected String name;
 
-    //@Annotation
+    @Basic
     protected String surname;
 
-    //@Annotation
+    @Basic
     protected int age;
 
-    //@Annotation
+
+    @Enumerated(EnumType.STRING)
     protected Role role;
 
-    //@Annotation
+    @OneToOne
     protected Credentials credentials;
 
     public User(String name, String surname, int age, Role role, Credentials credentials) {
